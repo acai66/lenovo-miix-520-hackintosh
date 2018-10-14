@@ -108,6 +108,11 @@ miix 520 接近完美黑苹果，[点击查看远景贴](http://bbs.pcbeta.com/v
 
 ## 5.更新日志
 
+### v1.0.1 -- 2018-10-14
+
+- 亮度调节方式更改为AppleBacklightFixup，[详细信息点击查看](https://bitbucket.org/RehabMan/applebacklightfixup)。
+- 设置默认启动上次启动的系统启动项，倒计时为10秒。
+
 ### v1.0 -- 2018-10-11
 
 - 初始版本.
