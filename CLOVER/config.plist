@@ -350,7 +350,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>-no_compat_check dart=0 debug=0x100 -disablegfxfirmware abm_firstpolldelay=16000 -lilubetaall</string>
+		<string>dart=0 abm_firstpolldelay=16000 -lilubetaall debug=0x100 rootless=0 kext-dev-mode=1 -no_compat_check</string>
 		<key>Debug</key>
 		<false/>
 		<key>DefaultVolume</key>
@@ -377,29 +377,99 @@
 		<dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
+				<key># DVMT-prealloc</key>
+				<string>32MB BIOS, 19MB framebuffer, 9MB cursor bytes (credit RehabMan)</string>
+				<key>## patch0</key>
+				<string>Enable lid wake for 0x19260002 credit syscl/lighting/Yating Zhou</string>
+				<key>## patch1</key>
+				<string>Enable lid wake for 0x19260004 credit syscl/lighting/Yating Zhou</string>
+				<key>#framebuffer-con0-enable</key>
+				<integer>1</integer>
+				<key>#framebuffer-con0-type</key>
+				<data>
+				AAQAAA==
+				</data>
+				<key>#framebuffer-con1-enable</key>
+				<integer>1</integer>
+				<key>#framebuffer-con1-flags</key>
+				<data>
+				hwEAAA==
+				</data>
+				<key>#framebuffer-con1-pipe</key>
+				<data>
+				EgAAAA==
+				</data>
+				<key>#framebuffer-con1-type</key>
+				<data>
+				AAgAAA==
+				</data>
+				<key>#framebuffer-con2-enable</key>
+				<integer>1</integer>
+				<key>#framebuffer-con2-flags</key>
+				<data>
+				hwEAAA==
+				</data>
+				<key>#framebuffer-con2-pipe</key>
+				<data>
+				EgAAAA==
+				</data>
+				<key>#framebuffer-con2-type</key>
+				<data>
+				AAgAAA==
+				</data>
+				<key>#framebuffer-con3-enable</key>
+				<integer>1</integer>
+				<key>#framebuffer-con3-flags</key>
+				<data>
+				hwEAAA==
+				</data>
+				<key>#framebuffer-con3-pipe</key>
+				<data>
+				EgAAAA==
+				</data>
+				<key>#framebuffer-con3-type</key>
+				<data>
+				AAgAAA==
+				</data>
+				<key>#framebuffer-patch0-enable</key>
+				<integer>1</integer>
+				<key>#framebuffer-patch0-find</key>
+				<data>
+				ChMDAAAABgAAAAAAAAAAAA==
+				</data>
+				<key>#framebuffer-patch0-replace</key>
+				<data>
+				DxMDAAAABgAAAAAAAAAAAA==
+				</data>
+				<key>#framebuffer-patch1-enable</key>
+				<integer>1</integer>
+				<key>#framebuffer-patch1-find</key>
+				<data>
+				CgsDAAAHBgADAAAABAAAAA==
+				</data>
+				<key>#framebuffer-patch1-replace</key>
+				<data>
+				DwsDAAAHBgADAAAABAAAAA==
+				</data>
+				<key>#hda-gfx</key>
+				<string>onboard-1</string>
 				<key>AAPL,ig-platform-id</key>
 				<data>
-				AAAbWQ==
+				AAAbGQ==
 				</data>
 				<key>device-id</key>
 				<data>
-				FlkAAA==
+				FhkAAA==
 				</data>
 				<key>framebuffer-fbmem</key>
 				<data>
 				AACQAA==
 				</data>
 				<key>framebuffer-patch-enable</key>
-				<data>
-				AQAAAA==
-				</data>
+				<integer>1</integer>
 				<key>framebuffer-stolenmem</key>
 				<data>
 				AAAwAQ==
-				</data>
-				<key>framebuffer-unifiedmem</key>
-				<data>
-				AAAAgA==
 				</data>
 			</dict>
 		</dict>
@@ -497,6 +567,8 @@
 		<true/>
 		<key>AppleRTC</key>
 		<true/>
+		<key>FakeCPUID</key>
+		<string>0x0406E3</string>
 		<key>KernelPm</key>
 		<true/>
 		<key>KernelToPatch</key>
@@ -524,7 +596,7 @@
 				<key>Comment</key>
 				<string>10.12+-第二阶段花屏补丁</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				AQAAdSU=
@@ -544,7 +616,7 @@
 				<key>Comment</key>
 				<string>10.14+-第二阶段花屏补丁</string>
 				<key>Disabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
 				AQAAdWQ=
@@ -578,9 +650,29 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>Disable minStolenSize less or equal fStolenMemorySize assertion, 10.14 (credit Austere.J/Sniki)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				dkBI/wU=
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.14.x</string>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelSKLGraphicsFramebuffer</string>
+				<key>Replace</key>
+				<data>
+				60BI/wU=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Change 15 port limit to 24 in XHCI kext 10.13</string>
 				<key>Disabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
 				g32MEA==
@@ -804,17 +896,17 @@
 	<key>SMBIOS</key>
 	<dict>
 		<key>BiosReleaseDate</key>
-		<string>06/26/2018</string>
+		<string>10/30/2018</string>
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
 		<key>BiosVersion</key>
-		<string>MBP152.88Z.0178.B00.1806260902</string>
+		<string>MBP131.88Z.F000.B00.1810301605</string>
 		<key>Board-ID</key>
-		<string>Mac-827FB448E656EC26</string>
+		<string>Mac-473D31EABEB93F9B</string>
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardSerialNumber</key>
-		<string>C02850301GUDM67JA</string>
+		<string>C02614902GUHMHKJC</string>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>BoardVersion</key>
@@ -825,6 +917,8 @@
 		<string>Apple Inc.</string>
 		<key>ChassisType</key>
 		<string>0x09</string>
+		<key>EfiVersion</key>
+		<string>228.0.0.0.0</string>
 		<key>Family</key>
 		<string>MacBook Pro</string>
 		<key>FirmwareFeatures</key>
@@ -840,11 +934,11 @@
 		<key>PlatformFeature</key>
 		<string>0x1A</string>
 		<key>ProductName</key>
-		<string>MacBookPro15,2</string>
+		<string>MacBookPro13,1</string>
 		<key>SerialNumber</key>
-		<string>C02XT3ZAJHCD</string>
+		<string>C02RJ9YTGVC1</string>
 		<key>SmUUID</key>
-		<string>EA417964-73FA-4FAB-A592-AD7177B684EC</string>
+		<string>178E4A37-7693-4054-B202-E77D6288ED92</string>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>
