@@ -6,12 +6,14 @@ miix 520 接近完美黑苹果，[点击查看远景贴](http://bbs.pcbeta.com/v
 #### 目录
 
 1. 配置信息
-2. 正常工作
-3. 不正常工作
-4. bug与解决方式
+2. 系统运行截图
+3. 正常工作
+4. 不正常工作
+5. bug与解决方式
 	- bug1:触摸板与触摸屏不能同时使用
 	- bug2:睡眠唤醒后键盘失效(重新拔插后正常)
-5. 更新日志
+6. 更新日志
+7. 常见问题解答
 
 ## 1.配置信息
 
@@ -26,7 +28,13 @@ miix 520 接近完美黑苹果，[点击查看远景贴](http://bbs.pcbeta.com/v
 - NVME硬盘：samsung pm961 1TB
 - bios：6ncn13ww
 
-## 2.正常工作
+## 2.系统运行截图
+- CLOVER多系统选择界面：
+<div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-10.14-CLOVER/master/Resource/images/clover.png" width="70%" /></div>
+- Mac OS运行图：
+<div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-10.14-CLOVER/master/Resource/images/about.png" width="70%" /></div>
+
+## 3.正常工作
 
 1. 声显网三卡：OK
 2. usb：OK
@@ -39,14 +47,14 @@ miix 520 接近完美黑苹果，[点击查看远景贴](http://bbs.pcbeta.com/v
 9. usb键盘、鼠标唤醒：OK
 10. SD读卡器：测试...
 
-## 3.不正常工作
+## 4.不正常工作
 
 1. I2C的重感、摄像头（貌似无解）
 2. ~~SD读卡器（我的是LTE版本的，没有sd模块，这个无法测试，可能有解~~
 3. iMessage（没有三码，可能有解）
 4. 指纹识别（未研究，可能无解）
 
-## 4.bug与解决方式
+## 5.bug与解决方式
 
 ### bug1:触摸板与触摸屏不能同时使用
 
@@ -108,9 +116,9 @@ miix 520 接近完美黑苹果，[点击查看远景贴](http://bbs.pcbeta.com/v
 
 	`sudo sh ./patch.sh`
 
-## 5.更新日志
+## 6.更新日志
 
-### v1.0.3 -- 2019-01-26
+### v1.3 -- 2019-01-26
 
 - 更新clover版本。
 - 添加开机声音驱动文件与声音资源文件，如何使用 请看 常见问题解答。
@@ -118,7 +126,7 @@ miix 520 接近完美黑苹果，[点击查看远景贴](http://bbs.pcbeta.com/v
 - 默认不集成sd卡驱动，如需要sd卡驱动，请看 常见问题解答。
 
 
-### v1.0.2 -- 2018-12-30
+### v1.2 -- 2018-12-30
 
 - 启用VirtualSMC.kext，放弃fakesmc.kext。
 - 启用SMCBatteryManager.kext，放弃ACPIBatteryManager.kext。
@@ -128,7 +136,7 @@ miix 520 接近完美黑苹果，[点击查看远景贴](http://bbs.pcbeta.com/v
 - CLOVER完全重新从我自用的提取，不是增量更新。
 - 测试添加SD读卡器驱动。
 
-### v1.0.1 -- 2018-10-14
+### v1.1 -- 2018-10-14
 
 - 亮度调节方式更改为AppleBacklightFixup，[详细信息点击查看](https://bitbucket.org/RehabMan/applebacklightfixup)。
 - 设置默认启动上次启动的系统启动项，倒计时为10秒。
