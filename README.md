@@ -14,6 +14,12 @@ miix 520 接近完美黑苹果，[点击查看远景贴](http://bbs.pcbeta.com/v
 	- bug2:睡眠唤醒后键盘失效(重新拔插后正常)
 6. 更新日志
 7. 常见问题解答
+	- 1:安装前的准备有哪些？
+	- 2:为什么安装时进度条走一半就卡住了？
+	- 3:为什么安装后触屏不能用？
+	- 4:为什么睡眠唤醒后键盘与触摸板就不能用了？
+	- 5:为什么多指触控不正常？
+	- 6:我可以随意更新系统吗？
 
 ## 1.配置信息
 
@@ -29,10 +35,12 @@ miix 520 接近完美黑苹果，[点击查看远景贴](http://bbs.pcbeta.com/v
 - bios：6ncn13ww
 
 ## 2.系统运行截图
+
 - CLOVER多系统选择界面：
-<div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-10.14-CLOVER/master/Resource/images/clover.png" width="70%" /></div>
+<div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-10.14-CLOVER/master/Resource/images/clover.png" width="95%" /></div>
+
 - Mac OS运行图：
-<div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-10.14-CLOVER/master/Resource/images/about.png" width="70%" /></div>
+<div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-10.14-CLOVER/master/Resource/images/about.png" width="95%" /></div>
 
 ## 3.正常工作
 
@@ -144,3 +152,19 @@ miix 520 接近完美黑苹果，[点击查看远景贴](http://bbs.pcbeta.com/v
 ### v1.0 -- 2018-10-11
 
 - 初始版本.
+
+## 7.常见问题解答
+
+### 1:安装前的准备有哪些？
+
+### 2:为什么安装时进度条走一半就卡住了？
+
+### 3:为什么安装后触屏不能用？
+
+### 4:为什么睡眠唤醒后键盘与触摸板就不能用了？
+
+### 5:为什么多指触控不正常？
+
+### 6:我可以随意更新系统吗？
+
+
