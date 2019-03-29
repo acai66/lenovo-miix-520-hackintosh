@@ -350,7 +350,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>dart=0 darkwake=0 abm_firstpolldelay=16000 -lilubetaall debug=0x100 rootless=0 kext-dev-mode=1 -no_compat_check</string>
+		<string>dart=0 darkwake=0 abm_firstpolldelay=16000 -lilubetaall debug=0x100 rootless=0 kext-dev-mode=1 -no_compat_check -v lilucpu=8</string>
 		<key>Debug</key>
 		<false/>
 		<key>DefaultVolume</key>
@@ -359,10 +359,12 @@
 		<string>PBR</string>
 		<key>NeverHibernate</key>
 		<true/>
+		<key>NoEarlyProgress</key>
+		<true/>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
-		<integer>5</integer>
+		<integer>0</integer>
 		<key>XMPDetection</key>
 		<false/>
 	</dict>
@@ -379,85 +381,9 @@
 		<dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
-				<key># DVMT-prealloc</key>
-				<string>32MB BIOS, 19MB framebuffer, 9MB cursor bytes (credit RehabMan)</string>
-				<key>## patch0</key>
-				<string>Enable lid wake for 0x19260002 credit syscl/lighting/Yating Zhou</string>
-				<key>## patch1</key>
-				<string>Enable lid wake for 0x19260004 credit syscl/lighting/Yating Zhou</string>
-				<key>#framebuffer-con0-enable</key>
-				<integer>1</integer>
-				<key>#framebuffer-con0-type</key>
-				<data>
-				AAQAAA==
-				</data>
-				<key>#framebuffer-con1-enable</key>
-				<integer>1</integer>
-				<key>#framebuffer-con1-flags</key>
-				<data>
-				hwEAAA==
-				</data>
-				<key>#framebuffer-con1-pipe</key>
-				<data>
-				EgAAAA==
-				</data>
-				<key>#framebuffer-con1-type</key>
-				<data>
-				AAgAAA==
-				</data>
-				<key>#framebuffer-con2-enable</key>
-				<integer>1</integer>
-				<key>#framebuffer-con2-flags</key>
-				<data>
-				hwEAAA==
-				</data>
-				<key>#framebuffer-con2-pipe</key>
-				<data>
-				EgAAAA==
-				</data>
-				<key>#framebuffer-con2-type</key>
-				<data>
-				AAgAAA==
-				</data>
-				<key>#framebuffer-con3-enable</key>
-				<integer>1</integer>
-				<key>#framebuffer-con3-flags</key>
-				<data>
-				hwEAAA==
-				</data>
-				<key>#framebuffer-con3-pipe</key>
-				<data>
-				EgAAAA==
-				</data>
-				<key>#framebuffer-con3-type</key>
-				<data>
-				AAgAAA==
-				</data>
-				<key>#framebuffer-patch0-enable</key>
-				<integer>1</integer>
-				<key>#framebuffer-patch0-find</key>
-				<data>
-				ChMDAAAABgAAAAAAAAAAAA==
-				</data>
-				<key>#framebuffer-patch0-replace</key>
-				<data>
-				DxMDAAAABgAAAAAAAAAAAA==
-				</data>
-				<key>#framebuffer-patch1-enable</key>
-				<integer>1</integer>
-				<key>#framebuffer-patch1-find</key>
-				<data>
-				CgsDAAAHBgADAAAABAAAAA==
-				</data>
-				<key>#framebuffer-patch1-replace</key>
-				<data>
-				DwsDAAAHBgADAAAABAAAAA==
-				</data>
-				<key>#hda-gfx</key>
-				<string>onboard-1</string>
 				<key>AAPL,ig-platform-id</key>
 				<data>
-				AAAbGQ==
+				AAAWGQ==
 				</data>
 				<key>device-id</key>
 				<data>
@@ -468,7 +394,9 @@
 				AACQAA==
 				</data>
 				<key>framebuffer-patch-enable</key>
-				<integer>1</integer>
+				<data>
+				AQAAAA==
+				</data>
 				<key>framebuffer-stolenmem</key>
 				<data>
 				AAAwAQ==
@@ -485,7 +413,7 @@
 			<true/>
 		</dict>
 		<key>UseIntelHDMI</key>
-		<true/>
+		<false/>
 	</dict>
 	<key>DisableDrivers</key>
 	<array>
@@ -577,7 +505,39 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>Disable</string>
+				<string>Disable panic kext logging on 10.13 debug kernel (credit vit9696)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				sABMi1Xw
+				</data>
+				<key>MatchOS</key>
+				<string>10.13.x</string>
+				<key>Replace</key>
+				<data>
+				SIPEQF3D
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Disable panic kext logging on 10.13 release kernel (credit vit9696)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				igKEwHRE
+				</data>
+				<key>MatchOS</key>
+				<string>10.13.x</string>
+				<key>Replace</key>
+				<data>
+				igKEwOtE
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Disable panic kext logging on 10.14 release kernel (credit vit9696)</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
@@ -652,26 +612,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Disable minStolenSize less or equal fStolenMemorySize assertion, 10.14 (credit Austere.J/Sniki)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				dkBI/wU=
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>MatchOS</key>
-				<string>10.14.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelSKLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				60BI/wU=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Change 15 port limit to 24 in XHCI kext 10.13</string>
 				<key>Disabled</key>
 				<false/>
@@ -686,44 +626,6 @@
 				<key>Replace</key>
 				<data>
 				g32MGw==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>change F%uT%04x to F%uTxxxx in AppleBacklightInjector.kext (credit RehabMan)</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				RiV1VCUwNHgA
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.driver.AppleBacklight</string>
-				<key>Replace</key>
-				<data>
-				RiV1VHh4eHgA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Disable minStolenSize check for 10.14 Beta 1 (by FireWoilf/Austere.J)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				dkZI/wW6SAg=
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>MatchOS</key>
-				<string>10.14.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				60ZI/wW6SAg=
 				</data>
 			</dict>
 			<dict>
@@ -746,112 +648,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Disable minStolenSize less or equal fStolenMemorySize assertion, 10.13 (based on Austere.J patch by Ricky)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				dkZI/wW6SAg=
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				60ZI/wW6SAg=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Disable minStolenSize less or equal fStolenMemorySize assertion, 10.13 (based on Austere.J patch by Ricky)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				TIlVuHZA
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelSKLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				TIlVuOtA
-				</data>
-			</dict>
-			<dict>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				dkZI/wU=
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				60ZI/wU=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Disable minStolenSize less or equal fStolenMemorySize assertion, 10.14beta6 (based on Austere.J patch by Ricky)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				dkZI/wU=
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelCFLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				60ZI/wU=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>0x591b0000, 32MB BIOS, 19MB framebuffer 9MB cursor bytes (credit RehabMan)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				AABgAgAAUAE=
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				AAAwAQAAkAA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>0x59230000, 32MB BIOS, 19MB framebuffer 9MB cursor bytes (credit acai)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				AABgAgAAAAA=
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				AAAwAQAAAAA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Prevent Apple I2C kexts from attaching to I2C controllers, credit CoolStar</string>
 				<key>Disabled</key>
 				<false/>
@@ -860,7 +656,7 @@
 				SU9LaXQ=
 				</data>
 				<key>InfoPlistPatch</key>
-				<false/>
+				<true/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelLpssI2C</string>
 				<key>Replace</key>
@@ -878,7 +674,7 @@
 				SU9LaXQ=
 				</data>
 				<key>InfoPlistPatch</key>
-				<false/>
+				<true/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelLpssI2CController</string>
 				<key>Replace</key>
@@ -908,7 +704,7 @@
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardSerialNumber</key>
-		<string>C02752501QXHMHKAD</string>
+		<string>C02646270J9HMHK1M</string>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>BoardVersion</key>
@@ -938,9 +734,9 @@
 		<key>ProductName</key>
 		<string>MacBookPro13,1</string>
 		<key>SerialNumber</key>
-		<string>C02VWQZ9GVC1</string>
+		<string>C02SP0RCGVC1</string>
 		<key>SmUUID</key>
-		<string>E64027B2-F923-4EB2-8D5C-E9F1A9D70075</string>
+		<string>39285F90-FE0C-4665-A35C-46677289B5B1</string>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>
