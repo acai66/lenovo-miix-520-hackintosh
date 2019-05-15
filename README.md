@@ -35,7 +35,7 @@ miix 520 接近完美黑苹果，[点击查看远景贴](http://bbs.pcbeta.com/v
 - 屏幕大小：12.2寸
 - 分辨率：1920x1200
 - NVME硬盘：samsung pm961 1TB
-- bios：6ncn13ww
+- bios：6ncn35ww
 
 ## 2.系统运行截图
 
@@ -128,6 +128,16 @@ miix 520 接近完美黑苹果，[点击查看远景贴](http://bbs.pcbeta.com/v
 	`sudo sh ./patch.sh`
 
 ## 6.更新日志
+### v1.6 -- 2019-05-15
+
+- 修正电源管理、声卡layout id补丁，转用ssdt hotpatch或devices属性注入；
+- 添加cpufriend，动态注入变频信息，将原先的最低频率1.3ghz调成800mhz，空闲时更加省电；
+- 精简部分冗余驱动；
+- 更新驱动与clover版本；
+- 修正电池dsdt补丁逻辑，这个修复感受不到有任何改进；
+- 修复上次更新时忘记去掉-v与默认启动选项；
+- ACPI/patched/WINDOWS/下提供dsdt.aml，以修复美版miix520在新版bios下无法识别指纹的问题(针对windows系统)；
+- 测试添加OpenCore引导，还不完善，不推荐日常使用，仅供研究；
 
 ### v1.5 -- 2019-04-05
 
@@ -178,8 +188,8 @@ miix 520 接近完美黑苹果，[点击查看远景贴](http://bbs.pcbeta.com/v
 6. 按照 [常见问题解答2](https://github.com/acai66/lenovo-miix-520-hackintosh-10.14-CLOVER#2为什么安装时进度条走一半就卡住了) 里的操作来屏蔽显卡安装。
 7. 安装完成后，添加硬盘启动引导。
 	
-### 2:为什么安装时进度条走一半就卡住了？
-A: 由于未知的原因，动态的显存补丁不能生效，所以导致dvmt显存检测时过不去而卡住，解决办法是暂时屏蔽显卡来安装，安装完成后，来运行kext utility来重建驱动缓存；具体做法是启动到clover界面，按字母o，找到graphics开头的选项，勾选里面的inject intel ，再修改*-platfrom-id为0x12345678，再esc键回clover主界面，启动安装，等安装好进入到桌面后，运行kext utility，输入密码，等待操作完成，quit，再不屏蔽显卡启动就好了。
+### ~~2:为什么安装时进度条走一半就卡住了？~~
+~~A: 由于未知的原因，动态的显存补丁不能生效，所以导致dvmt显存检测时过不去而卡住，解决办法是暂时屏蔽显卡来安装，安装完成后，来运行kext utility来重建驱动缓存；具体做法是启动到clover界面，按字母o，找到graphics开头的选项，勾选里面的inject intel ，再修改*-platfrom-id为0x12345678，再esc键回clover主界面，启动安装，等安装好进入到桌面后，运行kext utility，输入密码，等待操作完成，quit，再不屏蔽显卡启动就好了。~~
 <div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-10.14-CLOVER/master/Resource/images/disable_grapgics.png" width="95%" /></div>
 
 ### 3:为什么安装后触屏不能用？
@@ -188,8 +198,8 @@ A: 可能是与系统内置i2c驱动有冲突或者第一次启动时驱动注�
 ### 4:为什么睡眠唤醒后键盘与触摸板就不能用了？
 A: 请看readme里 bug与解决方式部分
 	
-### 5:为什么多指触控不正常？
-A: voodooi2c系列驱动的bug，等待作者修复这个，我会尽早更新clover的
+### ~~5:为什么多指触控不正常？~~
+~~A: voodooi2c系列驱动的bug，等待作者修复这个，我会尽早更新clover的~~
 
 ### 6:我可以随意更新系统吗？
 A: 理论上可以直接更新系统，但是新系统可能会把显卡驱动恢复到未打补丁的状态，所以更新系统时也屏蔽显卡启动，等更新完成后，再运行kext utility，再不屏蔽显卡启动。

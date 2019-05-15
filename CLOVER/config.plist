@@ -15,7 +15,7 @@
 				<key>AddDTGP</key>
 				<false/>
 				<key>AddMCHC</key>
-				<true/>
+				<false/>
 				<key>AddPNLF</key>
 				<false/>
 				<key>FixDarwin</key>
@@ -25,26 +25,12 @@
 				<key>FixHPET</key>
 				<false/>
 				<key>FixRTC</key>
-				<true/>
+				<false/>
 				<key>FixShutdown</key>
-				<true/>
+				<false/>
 			</dict>
 			<key>Patches</key>
 			<array>
-				<dict>
-					<key>Comment</key>
-					<string>change SAT0 to SATA</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					U0FUMA==
-					</data>
-					<key>Replace</key>
-					<data>
-					U0FUQQ==
-					</data>
-				</dict>
 				<dict>
 					<key>Comment</key>
 					<string>change HECI to IMEI</string>
@@ -131,48 +117,6 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change GSBI to GSB0 for battery status</string>
-					<key>Disabled</key>
-					<true/>
-					<key>Find</key>
-					<data>
-					R1NCSQA=
-					</data>
-					<key>Replace</key>
-					<data>
-					R1NCAAA=
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>MAMR TO MAM00</string>
-					<key>Disabled</key>
-					<true/>
-					<key>Find</key>
-					<data>
-					TUFNUgA=
-					</data>
-					<key>Replace</key>
-					<data>
-					TUFNAAA=
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>MAMR TO MAM00</string>
-					<key>Disabled</key>
-					<true/>
-					<key>Find</key>
-					<data>
-					TUFNUgE=
-					</data>
-					<key>Replace</key>
-					<data>
-					TUFNAAE=
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>change HDAS to HDEF</string>
 					<key>Disabled</key>
 					<false/>
@@ -183,20 +127,6 @@
 					<key>Replace</key>
 					<data>
 					SERFRg==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change _DSM to XDSM</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					X0RTTQ==
-					</data>
-					<key>Replace</key>
-					<data>
-					WERTTQ==
 					</data>
 				</dict>
 				<dict>
@@ -329,7 +259,7 @@
 		<key>FixHeaders</key>
 		<true/>
 		<key>HaltEnabler</key>
-		<true/>
+		<false/>
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
@@ -341,16 +271,14 @@
 				<key>PStates</key>
 				<false/>
 				<key>PluginType</key>
-				<true/>
+				<false/>
 			</dict>
-			<key>PluginType</key>
-			<string>1</string>
 		</dict>
 	</dict>
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>dart=0 darkwake=0 abm_firstpolldelay=16000 -lilubetaall debug=0x100 rootless=0 kext-dev-mode=1 -no_compat_check -v lilucpu=8</string>
+		<string>dart=0 darkwake=0 abm_firstpolldelay=16000 debug=0x100 rootless=0 kext-dev-mode=1</string>
 		<key>Debug</key>
 		<false/>
 		<key>DefaultVolume</key>
@@ -364,7 +292,7 @@
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
-		<integer>0</integer>
+		<integer>5</integer>
 		<key>XMPDetection</key>
 		<false/>
 	</dict>
@@ -372,22 +300,25 @@
 	<dict>
 		<key>Audio</key>
 		<dict>
-			<key>Inject</key>
-			<integer>3</integer>
 			<key>ResetHDA</key>
 			<true/>
 		</dict>
 		<key>Properties</key>
 		<dict>
+			<key>PciRoot(0)/Pci(0x1f,3)</key>
+			<dict>
+				<key>layout-id</key>
+				<integer>3</integer>
+			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
 				<key>AAPL,ig-platform-id</key>
 				<data>
-				AAAWGQ==
+				AAAbWQ==
 				</data>
 				<key>device-id</key>
 				<data>
-				FhkAAA==
+				FlkAAA==
 				</data>
 				<key>framebuffer-fbmem</key>
 				<data>
@@ -458,8 +389,10 @@
 		<key>Mouse</key>
 		<dict>
 			<key>Enabled</key>
-			<false/>
+			<true/>
 		</dict>
+		<key>PlayAsync</key>
+		<true/>
 		<key>Scan</key>
 		<dict>
 			<key>Entries</key>
@@ -497,8 +430,6 @@
 		<true/>
 		<key>AppleRTC</key>
 		<true/>
-		<key>FakeCPUID</key>
-		<string>0x0406E3</string>
 		<key>KernelPm</key>
 		<true/>
 		<key>KernelToPatch</key>
@@ -694,17 +625,17 @@
 	<key>SMBIOS</key>
 	<dict>
 		<key>BiosReleaseDate</key>
-		<string>10/30/2018</string>
+		<string>12/19/2018</string>
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
 		<key>BiosVersion</key>
-		<string>MBP131.88Z.F000.B00.1810301605</string>
+		<string>MBP141.88Z.F000.B00.1812191142</string>
 		<key>Board-ID</key>
-		<string>Mac-473D31EABEB93F9B</string>
+		<string>Mac-B4831CEBD52A0C4C</string>
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardSerialNumber</key>
-		<string>C02646270J9HMHK1M</string>
+		<string>C02742500QXHWVPUE</string>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>BoardVersion</key>
@@ -716,7 +647,7 @@
 		<key>ChassisType</key>
 		<string>0x09</string>
 		<key>EfiVersion</key>
-		<string>228.0.0.0.0</string>
+		<string>186.0.0.0.0</string>
 		<key>Family</key>
 		<string>MacBook Pro</string>
 		<key>FirmwareFeatures</key>
@@ -732,11 +663,11 @@
 		<key>PlatformFeature</key>
 		<string>0x1A</string>
 		<key>ProductName</key>
-		<string>MacBookPro13,1</string>
+		<string>MacBookPro14,1</string>
 		<key>SerialNumber</key>
-		<string>C02SP0RCGVC1</string>
+		<string>C02VK9ZWHV29</string>
 		<key>SmUUID</key>
-		<string>39285F90-FE0C-4665-A35C-46677289B5B1</string>
+		<string>54730171-0584-46DC-BD3E-F6FAFB7CF2E5</string>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>
