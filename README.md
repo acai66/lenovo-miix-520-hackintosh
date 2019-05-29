@@ -1,6 +1,8 @@
 # lenovo-miix-520-hackintosh-10.14-CLOVER
 [README](README.md) | [中文文档](README_zh.md)
+
 macos 10.14 on lenovo miix 520 is almost perfect.
+
 Thanks  [jamesxxx1997](http://i.pcbeta.com/space-uid-4849122.html) for translating into English.
 
 
