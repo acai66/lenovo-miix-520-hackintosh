@@ -1,7 +1,8 @@
 # lenovo-miix-520-hackintosh-10.14-CLOVER
 [README](README.md) | [中文文档](README_zh.md)
 
-macos 10.14 on lenovo miix 520 is almost perfect.
+macos on lenovo miix 520 is almost perfect.
+support macos 10.14.x and 10.15.x
 
 Thanks  [jamesxxx1997](http://i.pcbeta.com/space-uid-4849122.html) for translating into English.
 
@@ -134,6 +135,12 @@ The procedure is listed below：
 	`sudo sh ./patch.sh`
 
 ## 6.release version
+### v1.8 -- 2019-07-16
+- Update clover version
+- Update driver version,support macOS 10.15 beta3
+- fix bug2 in new macOS10.15
+- OC boot loader will be updated in v1.9
+
 ### v1.6 -- 2019-05-15
 
 - Fix power management、use ssdt hotpatch or devices property to inject sound card layout id kext

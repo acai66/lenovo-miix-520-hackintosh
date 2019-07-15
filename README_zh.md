@@ -1,7 +1,8 @@
 # lenovo-miix-520-hackintosh-10.14-CLOVER
 [README](README.md) | [中文文档](README_zh.md)
 
-macos 10.14 on lenovo miix 520 is almost perfect
+macos on lenovo miix 520 is almost perfect
+支持macos10.14.x、10.15.x。
 
 miix 520 接近完美黑苹果，[点击查看远景贴](http://bbs.pcbeta.com/viewthread-1795824-1-1.html)
 
@@ -130,6 +131,10 @@ miix 520 接近完美黑苹果，[点击查看远景贴](http://bbs.pcbeta.com/v
 	`sudo sh ./patch.sh`
 
 ## 6.更新日志
+### v1.8 -- 2019-07-16
+- 更新clover与各驱动版本，支持最新 macOS 10.15 beta3，OC引导下个版本更新
+- 修复新系统下睡眠唤醒键盘失效问题
+
 ### v1.7 -- 2019-05-29
  - 移除默认的acpi/windows/dsdt.aml,避免造成无法引导windows的问题
  - 添加英文readme

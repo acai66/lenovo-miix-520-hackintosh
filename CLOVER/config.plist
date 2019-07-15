@@ -362,7 +362,7 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Hidden</key>
-					<false/>
+					<true/>
 					<key>Ignore</key>
 					<false/>
 					<key>NoCaches</key>
@@ -427,11 +427,11 @@
 	<key>KernelAndKextPatches</key>
 	<dict>
 		<key>AppleIntelCPUPM</key>
-		<true/>
+		<false/>
 		<key>AppleRTC</key>
-		<true/>
+		<false/>
 		<key>KernelPm</key>
-		<true/>
+		<false/>
 		<key>KernelToPatch</key>
 		<array>
 			<dict>
@@ -509,7 +509,7 @@
 				<key>Comment</key>
 				<string>10.14+-第二阶段花屏补丁</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				AQAAdWQ=
@@ -552,6 +552,8 @@
 				</data>
 				<key>InfoPlistPatch</key>
 				<false/>
+				<key>MatchOS</key>
+				<string>10.13.x</string>
 				<key>Name</key>
 				<string>AppleUSBXHCIPCI</string>
 				<key>Replace</key>
@@ -635,7 +637,7 @@
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardSerialNumber</key>
-		<string>C02742500QXHWVPUE</string>
+		<string>C02712100GUHWVPUE</string>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>BoardVersion</key>
@@ -665,9 +667,9 @@
 		<key>ProductName</key>
 		<string>MacBookPro14,1</string>
 		<key>SerialNumber</key>
-		<string>C02VK9ZWHV29</string>
+		<string>C02TG0C3HV29</string>
 		<key>SmUUID</key>
-		<string>54730171-0584-46DC-BD3E-F6FAFB7CF2E5</string>
+		<string>8D187606-4B1A-435E-912A-F1980BF2FCCB</string>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>
