@@ -43,10 +43,10 @@ Thanks  [jamesxxx1997](http://i.pcbeta.com/space-uid-4849122.html) for translati
 ## 2.System screenshot
 
 - CLOVER bootloader screenshot：
-<div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-10.14-CLOVER/master/Resource/images/clover.png" width="95%" /></div>
+<div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-CLOVER/master/Resource/images/clover.png" width="95%" /></div>
 
 - Mac OS screenshot：
-<div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-10.14-CLOVER/master/Resource/images/about.png" width="95%" /></div>
+<div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-CLOVER/master/Resource/images/about.png" width="95%" /></div>
 
 ## 3.What is working
 
@@ -59,7 +59,7 @@ Thanks  [jamesxxx1997](http://i.pcbeta.com/space-uid-4849122.html) for translati
 7. Touchscreen , active stylus：OK
 8. bluetooth：OK
 9. wake up by usb mouse and keyboard：OK
-10. SD card reader : need to add by yourself , see [常见问题解答8](https://github.com/acai66/lenovo-miix-520-hackintosh-10.14-CLOVER#8读卡器能驱动吗)
+10. SD card reader : need to add by yourself , see [常见问题解答8](https://github.com/acai66/lenovo-miix-520-hackintosh-CLOVER#8读卡器能驱动吗)
 
 ## 4.What is not working
 
@@ -167,9 +167,9 @@ The procedure is listed below：
 ### v1.3 -- 2019-01-26
 
 - Update clover version。
-- Add boot sound [常见问题解答7](https://github.com/acai66/lenovo-miix-520-hackintosh-10.14-CLOVER#7开机声音怎么开启与关闭)。
+- Add boot sound [常见问题解答7](https://github.com/acai66/lenovo-miix-520-hackintosh-CLOVER#7开机声音怎么开启与关闭)。
 - Modify battery model information to miix 520，an update without pratical significance.
-- Do not add SD card reader kext by default , to manually add it ,look [常见问题解答8](https://github.com/acai66/lenovo-miix-520-hackintosh-10.14-CLOVER#8读卡器能驱动吗)。
+- Do not add SD card reader kext by default , to manually add it ,look [常见问题解答8](https://github.com/acai66/lenovo-miix-520-hackintosh-CLOVER#8读卡器能驱动吗)。
 
 
 ### v1.2 -- 2018-12-30
@@ -204,7 +204,7 @@ The procedure is listed below：
 	
 ### ~~2:为什么安装时进度条走一半就卡住了？~~
 ~~A: 由于未知的原因，动态的显存补丁不能生效，所以导致dvmt显存检测时过不去而卡住，解决办法是暂时屏蔽显卡来安装，安装完成后，来运行kext utility来重建驱动缓存；具体做法是启动到clover界面，按字母o，找到graphics开头的选项，勾选里面的inject intel ，再修改*-platfrom-id为0x12345678，再esc键回clover主界面，启动安装，等安装好进入到桌面后，运行kext utility，输入密码，等待操作完成，quit，再不屏蔽显卡启动就好了。~~
-<div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-10.14-CLOVER/master/Resource/images/disable_grapgics.png" width="95%" /></div>
+<div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-CLOVER/master/Resource/images/disable_grapgics.png" width="95%" /></div>
 
 ### 3: Why touchscreen cannot use after installation?
 A: This bug might result from voodooi2c.kext interruption with system i2c kext or fail to inject kext. After installation , please restart again , if the touchscreen still can not use , please manually remove the AppleIntelLpssI2C.kext and AppleIntelLpssI2CController.kext and run kext utility to rebuild your kextcache , then test the touchscreen again.
@@ -217,7 +217,7 @@ A: Theoretically , you can update system without a doubt. However , update syste
 
 ### 6: How to ecnable/disable boot sound?
 A: The new version of clover have boot sound option , and the macbook boot sound file is added. For the setting of this option is stored in nvram , so using clover directly without any advanced setting may not have boot sound. Using  newer version of clover and press O in the clover boot screen , enter the option “Startup sound output”, you can find out your screen as screenshot below. The default sound is 80 (in “sound” option),and you can test the boot sound by pressing F7. The two option under “sound” is sound output device.
-<div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-10.14-CLOVER/master/Resource/images/setup_sound.png" width="95%" /></div>
+<div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-CLOVER/master/Resource/images/setup_sound.png" width="95%" /></div>
 If you don’t neet boot sound , you can turn down the volume to 0 , or choose the sound output device there is not exist , or just delete the sound file in the folder.
 
 ### 7: Can I use SD card reader?
