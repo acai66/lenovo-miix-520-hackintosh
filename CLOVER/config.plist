@@ -187,34 +187,6 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change EHC1 to EH01</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					RUhDMQ==
-					</data>
-					<key>Replace</key>
-					<data>
-					RUgwMQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change EHC2 to EH02</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					RUhDMg==
-					</data>
-					<key>Replace</key>
-					<data>
-					RUgwMg==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>rename h_ec to ec</string>
 					<key>Disabled</key>
 					<false/>
@@ -278,7 +250,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>dart=0 darkwake=0 abm_firstpolldelay=16000 debug=0x100 rootless=0 kext-dev-mode=1</string>
+		<string>dart=0 darkwake=0 debug=0x100 rootless=0 kext-dev-mode=1 brcmfx-country=CN</string>
 		<key>Debug</key>
 		<false/>
 		<key>DefaultVolume</key>
@@ -286,7 +258,7 @@
 		<key>Legacy</key>
 		<string>PBR</string>
 		<key>NeverHibernate</key>
-		<true/>
+		<false/>
 		<key>NoEarlyProgress</key>
 		<true/>
 		<key>Secure</key>
@@ -341,6 +313,8 @@
 			<key>FixOwnership</key>
 			<true/>
 			<key>HighCurrent</key>
+			<false/>
+			<key>Inject</key>
 			<true/>
 		</dict>
 		<key>UseIntelHDMI</key>
@@ -379,6 +353,20 @@
 					<string>Windows</string>
 					<key>Type</key>
 					<string>Windows</string>
+				</dict>
+				<dict>
+					<key>Disabled</key>
+					<false/>
+					<key>FullTitle</key>
+					<string>Phoenix OS</string>
+					<key>Ignore</key>
+					<false/>
+					<key>Path</key>
+					<string>\EFI\PhoenixOS\boot\bootx64.efi</string>
+					<key>Type</key>
+					<string>Linux</string>
+					<key>Volume</key>
+					<string>69BDF272-CC20-3C73-90A6-C284E566A5E0</string>
 				</dict>
 			</array>
 		</dict>
@@ -487,44 +475,6 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>10.12+-第二阶段花屏补丁</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AQAAdSU=
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>MatchOS</key>
-				<string>10.12.x</string>
-				<key>Name</key>
-				<string>IOGraphicsFamily</string>
-				<key>Replace</key>
-				<data>
-				AQAA6yU=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.14+-第二阶段花屏补丁</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AQAAdWQ=
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.driver.IOGraphicsFamily</string>
-				<key>Replace</key>
-				<data>
-				AQAA62Q=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>External icons patch</string>
 				<key>Disabled</key>
 				<false/>
@@ -539,26 +489,6 @@
 				<key>Replace</key>
 				<data>
 				SW50ZXJuYWw=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Change 15 port limit to 24 in XHCI kext 10.13</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				g32MEA==
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>MatchOS</key>
-				<string>10.13.x</string>
-				<key>Name</key>
-				<string>AppleUSBXHCIPCI</string>
-				<key>Replace</key>
-				<data>
-				g32MGw==
 				</data>
 			</dict>
 			<dict>
@@ -627,17 +557,17 @@
 	<key>SMBIOS</key>
 	<dict>
 		<key>BiosReleaseDate</key>
-		<string>12/19/2018</string>
+		<string>06/17/2019</string>
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
 		<key>BiosVersion</key>
-		<string>MBP141.88Z.F000.B00.1812191142</string>
+		<string>MBP141.88Z.F000.B00.1906171613</string>
 		<key>Board-ID</key>
 		<string>Mac-B4831CEBD52A0C4C</string>
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardSerialNumber</key>
-		<string>C02712100GUHWVPUE</string>
+		<string>C02702403CDHWVP1F</string>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>BoardVersion</key>
@@ -649,7 +579,7 @@
 		<key>ChassisType</key>
 		<string>0x09</string>
 		<key>EfiVersion</key>
-		<string>186.0.0.0.0</string>
+		<string>198.0.0.0.0</string>
 		<key>Family</key>
 		<string>MacBook Pro</string>
 		<key>FirmwareFeatures</key>
@@ -667,9 +597,9 @@
 		<key>ProductName</key>
 		<string>MacBookPro14,1</string>
 		<key>SerialNumber</key>
-		<string>C02TG0C3HV29</string>
+		<string>C02T30R8HV29</string>
 		<key>SmUUID</key>
-		<string>8D187606-4B1A-435E-912A-F1980BF2FCCB</string>
+		<string>3D21D4CF-FA2D-40BB-8B93-6E748EC87879</string>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>

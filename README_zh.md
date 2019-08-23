@@ -131,6 +131,14 @@ miix 520 接近完美黑苹果，[点击查看远景贴](http://bbs.pcbeta.com/v
 	`sudo sh ./patch.sh`
 
 ## 6.更新日志
+### v1.9 -- 2019-08-23
+- 更新最新自编译clover与各驱动版本，支持最新 macOS 10.15 beta6
+- 更新最新自编译OpenCore引导
+- 进一步精简冗余hotpatch补丁
+- 添加ssdt-usbx.aml，避免潜在的usb电源问题
+- 说明1：更新beta6系统后如果触屏失效，请运行kext utility修复权限 重建缓存
+- 说明2：clover与opencore的config.plist文件都添加了brcmfx-country=CN来支持2.4ghz的12和13 wifi频段，但会造成5ghz wifi频段缺少的问题，brcmfx-country=US支持更多的5ghz 频段，但没有12和13频段，各国家wifi频段参考[wiki](https://zh.wikipedia.org/wiki/WLAN信道列表)，实际可用频段请以自己实测为准。
+
 ### v1.8 -- 2019-07-16
 - 更新clover与各驱动版本，支持最新 macOS 10.15 beta3，OC引导下个版本更新
 - 修复新系统下睡眠唤醒键盘失效问题
