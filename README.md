@@ -141,7 +141,7 @@ The procedure is listed below：
 - Further streamlining redundant hotpatch patches
 - Adding ssdt-usbx.aml to avoid potential USB power problems
 - Note 1: If the touch screen fails after updating the beta6 system, run kext utility to repair the permission and rebuild the cache
-- Note 2: config.plist in Clover and OpenCORE have been added brcmfx-country=CN to support 12 and 13 WiFi bands of 2.4 ghz, but this will cause the lack of 5 GHz WiFi band. brcmfx-country=US supports more 5 GHz bands, but there are no 12 and 13 bands. Wifi band reference [wiki] (https://zh.wikipedia.org/wiki/WLAN信道列表), the actual available bands should be tested by yourself.
+- Note 2: config.plist in Clover and OpenCORE have been added brcmfx-country=CN to support 12 and 13 WiFi bands of 2.4 ghz, but this will cause the lack of 5 GHz WiFi band. brcmfx-country=US supports more 5 GHz bands, but there are no 12 and 13 bands. Wifi band reference [wiki](https://zh.wikipedia.org/wiki/WLAN信道列表), the actual available bands should be tested by yourself.
 
 ### v1.8 -- 2019-07-16
 - Update clover version
