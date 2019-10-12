@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>19A487l</string>
+	<string>19A573a</string>
 	<key>CFBundleExecutable</key>
 	<string>BrcmPatchRAM2</string>
 	<key>CFBundleIdentifier</key>
@@ -15,7 +15,7 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.2.10</string>
+	<string>2.5.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -23,21 +23,21 @@
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2.2.10</string>
+	<string>2.5.0</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>10E1001</string>
+	<string>11A420a</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>18E219</string>
+	<string>19A547</string>
 	<key>DTSDKName</key>
-	<string>macosx10.14</string>
+	<string>macosx10.15</string>
 	<key>DTXcode</key>
-	<string>1020</string>
+	<string>1100</string>
 	<key>DTXcodeBuild</key>
-	<string>10E1001</string>
+	<string>11A420a</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>0489_e032</key>
@@ -1202,7 +1202,7 @@
 			<key>DisplayName</key>
 			<string>Dell Wireless 1820A Bluetooth 4.1 LE</string>
 			<key>FirmwareKey</key>
-			<string>BCM4350C5_003.006.007.0095.1703_v5799</string>
+			<string>BCM4350C5_003.006.007.0222.4689_v8785</string>
 			<key>IOClass</key>
 			<string>BrcmPatchRAM2</string>
 			<key>IOMatchCategory</key>
@@ -1783,6 +1783,27 @@
 			<key>idVendor</key>
 			<integer>5075</integer>
 		</dict>
+		<key>13d3_3517</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.no-one.BrcmPatchRAM2</string>
+			<key>DisplayName</key>
+			<string>Bluetooth USB module</string>
+			<key>FirmwareKey</key>
+			<string>BCM20702A1_001.002.014.1502.1786_v5882</string>
+			<key>IOClass</key>
+			<string>BrcmPatchRAM2</string>
+			<key>IOMatchCategory</key>
+			<string>BrcmPatchRAM2</string>
+			<key>IOProbeScore</key>
+			<integer>4000</integer>
+			<key>IOProviderClass</key>
+			<string>IOUSBHostDevice</string>
+			<key>idProduct</key>
+			<integer>13591</integer>
+			<key>idVendor</key>
+			<integer>5075</integer>
+		</dict>
 		<key>145f_01a3</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
@@ -1858,6 +1879,8 @@
 			<string>disabled_IOResources</string>
 		</dict>
 	</dict>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.9</string>
 	<key>OSBundleLibraries</key>
 	<dict>
 		<key>com.apple.iokit.IOUSBHostFamily</key>
@@ -1871,9 +1894,7 @@
 		<key>com.apple.kpi.mach</key>
 		<string>8.0</string>
 		<key>com.no-one.BrcmFirmwareStore</key>
-		<string>2.2.10</string>
+		<string>2.5.0</string>
 	</dict>
-	<key>Source Code</key>
-	<string>https://github.com/RehabMan/BrcmPatchRAM.git</string>
 </dict>
 </plist>
