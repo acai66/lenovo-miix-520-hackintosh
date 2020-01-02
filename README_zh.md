@@ -133,10 +133,11 @@ miix 520 接近完美黑苹果，[点击查看远景贴](http://bbs.pcbeta.com/v
 
 ## 6.更新日志
 
-### v2.0 -- 2019-10-12
-- 更新最新自编译clover、opencore与各驱动版本，支持最新 macOS 10.15
+### v2.0 -- 2020-01-02
+- 更新最新自编译clover、opencore与各驱动版本，支持最新 macOS 10.15.2
 - 大量优化opencore配置，从此版开始，以后主更新opencore引导
-- 修改wifi 国家为us，将支持更多5ghz wifi频段，但会缺失2.4ghz的12、13信道
+- 修正usb配置，修复ipad充电问题
+- 修改wifi 国家为NZL，将支持更多5ghz wifi频段，同时不影响13个2.4ghz频段。
 - 更新 解决唤醒后需要拔插键盘问题的方案.zip ，测试支持macOS 10.15
 - 说明1: oc启动引导如果没有自动扫描出windows或linux启动项，请手动自定义添加引导配置到oc的config.plist里。
 - 说明2: oc里的acpi等补丁会对所有系统生效，所以由oc引导的windows会把机型识别为MacBook pro，并且也将支持原生的macOS的启动磁盘切换(待测试)。

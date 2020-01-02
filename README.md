@@ -135,6 +135,16 @@ The procedure is listed below：
 	`sudo sh ./patch.sh`
 
 ## 6.release version
+### v2.0 -- 2020-01-02 -- machine translation
+- Update the latest CLOVER, OpenCore and drivers, and support the latest MacOS 10.15.2
+- A large number of OpenCORE configurations are optimized, starting from this version, i will mainly update the opencore bootloader.
+- Fix USB configuration and iPad charging problem
+- Changing the WiFi country to NZL will support more 5GHz WiFi bands without affecting 2.4GHz bands.
+- Update the solution to the problem of bug2, test support Mac OS 10.15
+- Note 1: if the OC boot does not automatically scan out the windows or Linux boot items, please manually add the boot configuration to the config.plist of the OC.
+- Note 2: the ACPI and other patches in the OC will take effect on all systems, so windows booted by the OC will recognize the model as MacBook Pro, and will also support the startup disk switching of the native Mac OS (to be tested).
+- Note 3: Recently, a lot of changes have been made for hotpatch OC. My side is normal at present. If there is any abnormal bug, please send issue. I am the American version of Miix 520, and the BIOS version of 6ncn35ww. Some hotpatch patches depend on the DSDT table in the BIOS, so the BIOS version is best consistent.
+
 ### v1.9 -- 2019-08-23
 - Update the latest self-compiled clover and drivers to support the latest macOS 10.15 beta 6
 - Update the latest self-compiled OpenCore

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>19A573a</string>
+	<string>19B88</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -27,17 +27,17 @@
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>11A420a</string>
+	<string>11C29</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>19A547</string>
+	<string>16E185</string>
 	<key>DTSDKName</key>
-	<string>macosx10.15</string>
+	<string>macosx10.12</string>
 	<key>DTXcode</key>
-	<string>1100</string>
+	<string>1130</string>
 	<key>DTXcodeBuild</key>
-	<string>11A420a</string>
+	<string>11C29</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>Intel ACPI Sensor Hub Enabler</key>
@@ -317,7 +317,7 @@
 			<key>ProcessUSBMouseStopsTrackpad</key>
 			<false/>
 			<key>QuietTimeAfterTyping</key>
-			<integer>500</integer>
+			<integer>100</integer>
 			<key>RM,deliverNotifications</key>
 			<true/>
 		</dict>
@@ -360,6 +360,22 @@
 			<integer>400</integer>
 			<key>IOProviderClass</key>
 			<string>IOHIDInterface</string>
+		</dict>
+		<key>VoodooI2CHIDSYNA3602Device</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.alexandred.VoodooI2CHID</string>
+			<key>IOClass</key>
+			<string>VoodooI2CHIDSYNA3602Device</string>
+			<key>IOProbeScore</key>
+			<integer>200</integer>
+			<key>IOPropertyMatch</key>
+			<dict>
+				<key>name</key>
+				<string>SYNA3602</string>
+			</dict>
+			<key>IOProviderClass</key>
+			<string>VoodooI2CDeviceNub</string>
 		</dict>
 	</dict>
 	<key>LSMinimumSystemVersion</key>
