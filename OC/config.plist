@@ -1100,7 +1100,7 @@
 				<key>Comment</key>
 				<string>Ubuntu</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Name</key>
 				<string>Ubuntu</string>
 				<key>Path</key>
@@ -1112,7 +1112,7 @@
 				<key>Comment</key>
 				<string>Manjaro</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Name</key>
 				<string>Manjaro</string>
 				<key>Path</key>
@@ -1124,7 +1124,7 @@
 				<key>Comment</key>
 				<string>UOS Desktop</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Name</key>
 				<string>UOS 20 Desktop</string>
 				<key>Path</key>
@@ -1136,7 +1136,7 @@
 				<key>Comment</key>
 				<string>UOS</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Name</key>
 				<string>UOS 20</string>
 				<key>Path</key>
