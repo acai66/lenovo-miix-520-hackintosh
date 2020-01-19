@@ -133,6 +133,17 @@ miix 520 接近完美黑苹果，[点击查看远景贴](http://bbs.pcbeta.com/v
 
 ## 6.更新日志
 
+### v2.1
+- 更新最新自编译opencore与各驱动版本，支持最新 macOS 10.15.2
+- 大量优化opencore配置：
+    + 修复一处acpi中关于电源键的问题
+    + opencore引导界面支持上下方向切换光标，回车键选中
+    + opencore支持按住ctrl加回车键设置默认启动项，ctrl加系统序号也行
+    + 支持mac快捷键，例如启动时按住win键加v实现啰嗦模式，其余快捷键参考mac启动快捷键
+    + 设置show picker为false后可以通过在启动时按住Esc显示picker
+- 本次未更新clover，下次有时间再更新，同时翻译成英文与发布release。
+
+
 ### v2.0 -- 2020-01-02
 - 更新最新自编译clover、opencore与各驱动版本，支持最新 macOS 10.15.2
 - 大量优化opencore配置，从此版开始，以后主更新opencore引导

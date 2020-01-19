@@ -20,7 +20,7 @@
 				<key>Comment</key>
 				<string>修复美版miix520更新bios后指纹识别问题</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Path</key>
 				<string>MIIX520_FPNT.aml</string>
 			</dict>
@@ -114,22 +114,7 @@
 			</dict>
 		</array>
 		<key>Block</key>
-		<array>
-			<dict>
-				<key>All</key>
-				<true/>
-				<key>Comment</key>
-				<string>Drop DMAR</string>
-				<key>Enabled</key>
-				<true/>
-				<key>OemTableId</key>
-				<data></data>
-				<key>TableLength</key>
-				<integer>0</integer>
-				<key>TableSignature</key>
-				<data>RE1BUg==</data>
-			</dict>
-		</array>
+		<array/>
 		<key>Patch</key>
 		<array>
 			<dict>
@@ -532,6 +517,8 @@
 			<true/>
 			<key>ShrinkMemoryMap</key>
 			<false/>
+			<key>SignalAppleOS</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>DeviceProperties</key>
@@ -923,6 +910,22 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
+				<string>NVMeFix.kext</string>
+				<key>Comment</key>
+				<string>nvmefix</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/NVMeFix</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
 				<string>WhateverGreen.kext</string>
 				<key>Comment</key>
 				<string></string>
@@ -1034,11 +1037,15 @@
 			<false/>
 			<key>AppleXcpmExtraMsrs</key>
 			<false/>
+			<key>AppleXcpmForceBoost</key>
+			<false/>
 			<key>CustomSMBIOSGuid</key>
 			<false/>
 			<key>DisableIoMapper</key>
-			<false/>
+			<true/>
 			<key>ExternalDiskIcons</key>
+			<false/>
+			<key>IncreasePciBarSize</key>
 			<false/>
 			<key>LapicKernelPanic</key>
 			<false/>
@@ -1055,9 +1062,7 @@
 	<key>Misc</key>
 	<dict>
 		<key>BlessOverride</key>
-		<array>
-			<string>\EFI\Microsoft\Boot\bootmgfw.efi</string>
-		</array>
+		<array/>
 		<key>Boot</key>
 		<dict>
 			<key>ConsoleBehaviourOs</key>
@@ -1098,54 +1103,22 @@
 				<key>Arguments</key>
 				<string></string>
 				<key>Comment</key>
-				<string>Ubuntu</string>
-				<key>Enabled</key>
-				<false/>
-				<key>Name</key>
-				<string>Ubuntu</string>
-				<key>Path</key>
-				<string>PciRoot(0x0)/Pci(0x1D,0x0)/Pci(0x0,0x0)/NVMe(0x1,C9-A4-B1-71-B8-38-25-00)/HD(1,GPT,3A7E20C0-89EA-48DC-B3A3-C90B7F17D208,0x28,0x64000)/\EFI\ubuntu\grubx64.efi</string>
-			</dict>
-			<dict>
-				<key>Arguments</key>
-				<string></string>
-				<key>Comment</key>
 				<string>Manjaro</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Name</key>
 				<string>Manjaro</string>
 				<key>Path</key>
 				<string>PciRoot(0x0)/Pci(0x1D,0x0)/Pci(0x0,0x0)/NVMe(0x1,C9-A4-B1-71-B8-38-25-00)/HD(1,GPT,3A7E20C0-89EA-48DC-B3A3-C90B7F17D208,0x28,0x64000)/\EFI\Manjaro\grubx64.efi</string>
 			</dict>
-			<dict>
-				<key>Arguments</key>
-				<string></string>
-				<key>Comment</key>
-				<string>UOS Desktop</string>
-				<key>Enabled</key>
-				<false/>
-				<key>Name</key>
-				<string>UOS 20 Desktop</string>
-				<key>Path</key>
-				<string>PciRoot(0x0)/Pci(0x1D,0x0)/Pci(0x0,0x0)/NVMe(0x1,C9-A4-B1-71-B8-38-25-00)/HD(1,GPT,3A7E20C0-89EA-48DC-B3A3-C90B7F17D208,0x28,0x64000)/\EFI\deepin\grubx64.efi</string>
-			</dict>
-			<dict>
-				<key>Arguments</key>
-				<string></string>
-				<key>Comment</key>
-				<string>UOS</string>
-				<key>Enabled</key>
-				<false/>
-				<key>Name</key>
-				<string>UOS 20</string>
-				<key>Path</key>
-				<string>PciRoot(0x0)/Pci(0x1D,0x0)/Pci(0x0,0x0)/NVMe(0x1,C9-A4-B1-71-B8-38-25-00)/HD(1,GPT,3A7E20C0-89EA-48DC-B3A3-C90B7F17D208,0x28,0x64000)/\EFI\uos\grubx64.efi</string>
-			</dict>
 		</array>
 		<key>Security</key>
 		<dict>
 			<key>AllowNvramReset</key>
+			<true/>
+			<key>AllowSetDefault</key>
+			<true/>
+			<key>AuthRestart</key>
 			<true/>
 			<key>ExposeSensitiveData</key>
 			<integer>6</integer>
@@ -1159,20 +1132,7 @@
 			<integer>0</integer>
 		</dict>
 		<key>Tools</key>
-		<array>
-			<dict>
-				<key>Arguments</key>
-				<string></string>
-				<key>Comment</key>
-				<string>Not signed for security reasons</string>
-				<key>Enabled</key>
-				<false/>
-				<key>Name</key>
-				<string>UEFI Shell</string>
-				<key>Path</key>
-				<string>Shell.efi</string>
-			</dict>
-		</array>
+		<array/>
 	</dict>
 	<key>NVRAM</key>
 	<dict>
@@ -1187,6 +1147,8 @@
 			<dict>
 				<key>boot-args</key>
 				<string>keepsyms=1 debug=0x100 darkwake=0 brcmfx-country=NZL npci=0x3000</string>
+				<key>prev-lang:kbd</key>
+				<data>cnUtUlU6MjUy</data>
 			</dict>
 		</dict>
 		<key>Block</key>
@@ -1202,31 +1164,10 @@
 		</dict>
 		<key>LegacyEnable</key>
 		<false/>
-		<key>LegacySchema</key>
-		<dict>
-			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
-			<array>
-				<string>EFILoginHiDPI</string>
-				<string>EFIBluetoothDelay</string>
-				<string>LocationServicesEnabled</string>
-				<string>SystemAudioVolume</string>
-				<string>SystemAudioVolumeDB</string>
-				<string>bluetoothActiveControllerInfo</string>
-				<string>bluetoothInternalControllerInfo</string>
-				<string>flagstate</string>
-				<string>fmm-computer-name</string>
-				<string>nvda_drv</string>
-				<string>prev-lang:kbd</string>
-			</array>
-			<key>8BE4DF61-93CA-11D2-AA0D-00E098032B8C</key>
-			<array>
-				<string>Boot0080</string>
-				<string>Boot0081</string>
-				<string>Boot0082</string>
-				<string>BootNext</string>
-				<string>BootOrder</string>
-			</array>
-		</dict>
+		<key>LegacyOverwrite</key>
+		<false/>
+		<key>WriteFlash</key>
+		<true/>
 	</dict>
 	<key>PlatformInfo</key>
 	<dict>
@@ -1237,7 +1178,7 @@
 			<key>ARTFrequency</key>
 			<integer>0</integer>
 			<key>BoardProduct</key>
-			<string>Mac-B4831CEBD52A0C4C</string>
+			<string>Mac-F221BEC8</string>
 			<key>BoardRevision</key>
 			<data>AQ==</data>
 			<key>DevicePathsSupported</key>
@@ -1368,10 +1309,7 @@
 			<string>ApfsDriverLoader.efi</string>
 			<string>VBoxHfs.efi</string>
 			<string>VBoxExt4.efi</string>
-			<string>DataHubDxe.efi</string>
-			<string>FSInject.efi</string>
 			<string>FwRuntimeServices.efi</string>
-			<string>VirtualSmc.efi</string>
 		</array>
 		<key>Input</key>
 		<dict>
@@ -1402,6 +1340,8 @@
 			<false/>
 			<key>AppleKeyMap</key>
 			<false/>
+			<key>AppleSmcIo</key>
+			<true/>
 			<key>AppleUserInterfaceTheme</key>
 			<false/>
 			<key>ConsoleControl</key>
@@ -1413,6 +1353,8 @@
 			<key>FirmwareVolume</key>
 			<false/>
 			<key>HashServices</key>
+			<false/>
+			<key>OSInfo</key>
 			<false/>
 			<key>UnicodeCollation</key>
 			<false/>
