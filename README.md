@@ -135,6 +135,11 @@ The procedure is listed below：
 	`sudo sh ./patch.sh`
 
 ## 6.release version
+
+### v2.2 -- 2020-03-13
+- Update the latest CLOVER, OpenCore and drivers, and support the latest macOS 10.15.3
+- Support opencore startup audio.
+
 ### v2.0 -- 2020-01-02 -- machine translation
 - Update the latest CLOVER, OpenCore and drivers, and support the latest MacOS 10.15.2
 - A large number of OpenCORE configurations are optimized, starting from this version, i will mainly update the opencore bootloader.
@@ -234,7 +239,7 @@ A: please look up to the “bug and solution” part in readme
 A: Theoretically , you can update system without a doubt. However , update system may break graphic acceleration patch. So don’t forget to use an invalid ig-platform-id (0x12345678) when update the system. After the update is finished , rebuild kextcache , then inject valid ig-platform-id and restart your machine again.
 
 ### 6: How to ecnable/disable boot sound?
-A: The new version of clover have boot sound option , and the macbook boot sound file is added. For the setting of this option is stored in nvram , so using clover directly without any advanced setting may not have boot sound. Using  newer version of clover and press O in the clover boot screen , enter the option “Startup sound output”, you can find out your screen as screenshot below. The default sound is 80 (in “sound” option),and you can test the boot sound by pressing F7. The two option under “sound” is sound output device.
+A: For OpenCore bootloader: you can try to edit config.plist, set AudioSupport to False. For CLOVER bootloader: The new version of clover have boot sound option , and the macbook boot sound file is added. For the setting of this option is stored in nvram , so using clover directly without any advanced setting may not have boot sound. Using  newer version of clover and press O in the clover boot screen , enter the option “Startup sound output”, you can find out your screen as screenshot below. The default sound is 80 (in “sound” option),and you can test the boot sound by pressing F7. The two option under “sound” is sound output device.
 <div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-CLOVER/master/Resource/images/setup_sound.png" width="95%" /></div>
 If you don’t neet boot sound , you can turn down the volume to 0 , or choose the sound output device there is not exist , or just delete the sound file in the folder.
 
