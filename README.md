@@ -136,6 +136,10 @@ The procedure is listed below：
 
 ## 6.release version
 
+### v2.3 -- 2020-04-09
+- Update the latest CLOVER, OpenCore and drivers, and support the latest macOS 10.15.4
+- Support opencore GUI.
+
 ### v2.2 -- 2020-03-13
 - Update the latest CLOVER, OpenCore and drivers, and support the latest macOS 10.15.3
 - Support opencore startup audio.
