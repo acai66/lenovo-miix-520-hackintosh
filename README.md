@@ -136,6 +136,11 @@ The procedure is listed below：
 
 ## 6.release version
 
+### v2.4 -- 2020-05-22
+- Update the latest CLOVER, OpenCore and drivers, and support the latest macOS 10.15.4
+- Support hotkeys and touchscreen in opencore GUI.
+- Fix missing battery in settings->energy saver.
+
 ### v2.3 -- 2020-04-09
 - Update the latest CLOVER, OpenCore and drivers, and support the latest macOS 10.15.4
 - Support opencore GUI.

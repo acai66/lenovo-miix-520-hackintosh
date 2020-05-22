@@ -198,7 +198,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>dart=0 darkwake=0 debug=0x100 rootless=0 kext-dev-mode=1 brcmfx-country=NZL</string>
+		<string>dart=0 darkwake=0 debug=0x100 rootless=0 kext-dev-mode=1 brcmfx-country=#a</string>
 		<key>Debug</key>
 		<false/>
 		<key>DefaultVolume</key>
@@ -206,7 +206,7 @@
 		<key>Legacy</key>
 		<string>PBR</string>
 		<key>NeverHibernate</key>
-		<true/>
+		<false/>
 		<key>NoEarlyProgress</key>
 		<true/>
 		<key>Secure</key>
@@ -467,17 +467,17 @@
 	<key>SMBIOS</key>
 	<dict>
 		<key>BiosReleaseDate</key>
-		<string>12/19/2018</string>
+		<string>01/31/2020</string>
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
 		<key>BiosVersion</key>
-		<string>MBP141.88Z.F000.B00.1812191142</string>
+		<string>MBP141.88Z.F000.B00.2001311754</string>
 		<key>Board-ID</key>
 		<string>Mac-B4831CEBD52A0C4C</string>
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardSerialNumber</key>
-		<string>C02824200J9HWVPJC</string>
+		<string>C02943501GUHWVPCB</string>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>BoardVersion</key>
@@ -489,13 +489,13 @@
 		<key>ChassisType</key>
 		<string>0x09</string>
 		<key>EfiVersion</key>
-		<string>186.0.0.0.0</string>
+		<string>205.0.0.0.0</string>
 		<key>Family</key>
 		<string>MacBook Pro</string>
 		<key>FirmwareFeatures</key>
-		<string>0xFC0FE137</string>
+		<string>0xFC0FE176</string>
 		<key>FirmwareFeaturesMask</key>
-		<string>0xFF1FFF3F</string>
+		<string>0xFF1FFF7F</string>
 		<key>LocationInChassis</key>
 		<string>Part Component</string>
 		<key>Manufacturer</key>
@@ -507,9 +507,9 @@
 		<key>ProductName</key>
 		<string>MacBookPro14,1</string>
 		<key>SerialNumber</key>
-		<string>C02WV8YYHV29</string>
+		<string>C02ZL0A2HV29</string>
 		<key>SmUUID</key>
-		<string>0F0A1E8A-A259-46D0-A0B0-0B881B3F8036</string>
+		<string>06BC11C0-5CC3-44BB-BF24-98480917AEB3</string>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>
