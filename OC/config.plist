@@ -18,22 +18,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>pwrb</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-PWRB.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>PMCR</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-PMCR.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>macos10.15 backlight</string>
 				<key>Enabled</key>
 				<true/>
