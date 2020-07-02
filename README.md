@@ -136,6 +136,10 @@ The procedure is listed below：
 
 ## 6.release version
 
+### v2.5 beta -- 2020-07-02
+- Update the latest OpenCore and drivers, and support the latest macOS 11.0 (10.16).
+- Fix hotkeys in opencore GUI.
+
 ### v2.4 -- 2020-05-22
 - Update the latest CLOVER, OpenCore and drivers, and support the latest macOS 10.15.4
 - Support hotkeys and touchscreen in opencore GUI.
