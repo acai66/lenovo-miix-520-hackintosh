@@ -42,7 +42,7 @@
 	<string>11L374m</string>
 	<key>IOKitPersonalities</key>
 	<dict>
-		<key>0x1199/0x9077 EM7455</key>
+		<key>0x1199/0x9071 EM7455</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleUSBHostMergeProperties</string>
@@ -127,7 +127,7 @@
 			<key>bcdDevice</key>
 			<integer>6</integer>
 			<key>idProduct</key>
-			<integer>36985</integer>
+			<integer>36977</integer>
 			<key>idVendor</key>
 			<integer>4505</integer>
 		</dict>
