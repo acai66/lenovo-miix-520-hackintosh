@@ -12,7 +12,7 @@
 #include <Headers/kern_cpu.hpp>
 #include <Headers/kern_iokit.hpp>
 #include <Headers/kern_util.hpp>
-#include <Library/LegacyIOService.h>
+#include <IOKit/IOService.h>
 
 /**
  *  Obtain installed devices split into categories.
@@ -35,6 +35,13 @@ class DeviceInfo {
 	 *  @param pciRoot  PCI root instance (commonly PCI0@0 device)
 	 */
 	void grabDevicesFromPciRoot(IORegistryEntry *pciRoot);
+
+	/**
+	 *  Await for PCI device publishing in IODeviceTree plane
+	 *
+	 *  @param obj  wait for (PCI) object publishing
+	 */
+	void awaitPublishing(IORegistryEntry *obj);
 
 public:
 	/**
@@ -254,6 +261,13 @@ public:
 	 *  Requested external GPU switchoff
 	 */
 	bool requestedExternalSwitchOff {false};
+
+	/**
+	 *  Allocate and initialise cached device list.
+	 *
+	 *  @return device list or nullptr
+	 */
+	static DeviceInfo *createCached();
 
 	/**
 	 *  Allocate and initialise the device list.

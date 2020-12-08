@@ -11,7 +11,7 @@
 #include <Headers/kern_util.hpp>
 #include <VirtualSMCSDK/kern_smcinfo.hpp>
 #include <VirtualSMCSDK/kern_keyvalue.hpp>
-#include <Library/LegacyIOService.h>
+#include <IOKit/IOService.h>
 
 namespace VirtualSMCAPI {
 	/**
@@ -152,6 +152,46 @@ namespace VirtualSMCAPI {
 	EXPORT uint16_t encodeFp(uint32_t type, double value);
 
 	/**
+	 *  Decode Apple FP signed integral number
+	 *
+	 *  @param type  encoding type, e.g. SmcKeyTypeSp78
+	 *  @param value value as it is read from SMC_DATA field
+	 *
+	 *  @return floating point value
+	 */
+	EXPORT int16_t decodeIntSp(uint32_t type, uint16_t value);
+
+	/**
+	 *  Encode Apple FP signed integral number
+	 *
+	 *  @param type  encoding type, e.g. SmcKeyTypeSp78
+	 *  @param value source value
+	 *
+	 *  @return value as it is to be written to SMC_DATA field
+	 */
+	EXPORT uint16_t encodeIntSp(uint32_t type, int16_t value);
+
+	/**
+	 *  Decode Apple FP unsigned integral number
+	 *
+	 *  @param type  encoding type, e.g. SmcKeyTypeFpe2
+	 *  @param value value as it is read from SMC_DATA field
+	 *
+	 *  @return floating point value
+	 */
+	EXPORT uint16_t decodeIntFp(uint32_t type, uint16_t value);
+
+	/**
+	 *  Encode Apple FP unsigned integral number
+	 *
+	 *  @param type  encoding type, e.g. SmcKeyTypeFpe2
+	 *  @param value source value
+	 *
+	 *  @return value as it is to be written to SMC_DATA field
+	 */
+	EXPORT uint16_t encodeIntFp(uint32_t type, uint16_t value);
+
+	/**
 	 *  Decode Apple float fractional format
 	 *
 	 *  @param value value as it is read from SMC_DATA field
@@ -193,6 +233,16 @@ namespace VirtualSMCAPI {
 	 */
 	inline VirtualSMCValue *valueWithUint8(uint8_t uint8Value, VirtualSMCValue *thisValue = nullptr, SMC_KEY_ATTRIBUTES smcKeyAttrs = SMC_KEY_ATTRIBUTE_READ, SerializeLevel serializeLevel = SerializeLevel::None) {
 		return valueWithData(reinterpret_cast<const SMC_DATA *>(&uint8Value), sizeof(uint8_t), SmcKeyTypeUint8, thisValue, smcKeyAttrs, serializeLevel);
+	}
+
+	/**
+	 *  A convenient method for initializing Sint8 type key value.
+	 *
+	 *  @param sint8Value  an integer of -128..127 range.
+	 *  @see VirtualSMCAPI::valueWithData
+	 */
+	inline VirtualSMCValue *valueWithSint8(int8_t sint8Value, VirtualSMCValue *thisValue = nullptr, SMC_KEY_ATTRIBUTES smcKeyAttrs = SMC_KEY_ATTRIBUTE_READ, SerializeLevel serializeLevel = SerializeLevel::None) {
+		return valueWithData(reinterpret_cast<const SMC_DATA *>(&sint8Value), sizeof(uint8_t), SmcKeyTypeSint8, thisValue, smcKeyAttrs, serializeLevel);
 	}
 
 	/**

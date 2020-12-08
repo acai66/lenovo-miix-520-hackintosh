@@ -9,33 +9,10 @@
 #define kern_rtc_h
 
 #include <Headers/kern_util.hpp>
-#include <Library/LegacyIOService.h>
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winconsistent-missing-override"
+#include <IOKit/IOService.h>
 #include <IOKit/acpi/IOACPIPlatformDevice.h>
-#pragma clang diagnostic pop
 
 class RTCStorage {
-	/**
-	 *  General access RTC ports on x86 systems.
-	 */
-	static constexpr uint8_t R_PCH_RTC_INDEX = 0x70;
-	static constexpr uint8_t R_PCH_RTC_TARGET = 0x71;
-	static constexpr uint8_t R_PCH_RTC_EXT_INDEX = 0x72;
-	static constexpr uint8_t R_PCH_RTC_EXT_TARGET = 0x73;
-
-	/**
-	 *  RTC has N banks (we support up to 2) of memory.
-	 */
-	static constexpr uint8_t RTC_BANK_SIZE = 0x80;
-
-	/**
-	 *  Non-ext RTC index register uses higher bit for nmi.
-	 */
-	static constexpr uint8_t RTC_DATA_MASK = 0x7F;
-	static constexpr uint8_t RTC_NMI_MASK = 0x80;
-
 	/**
 	 *  Apple-specific RTC checksum addresses
 	 */
@@ -67,6 +44,36 @@ class RTCStorage {
 	 */
 	static void writeByte(IOACPIPlatformDevice *dev, uint8_t offset, uint8_t value);
 public:
+	/**
+	 *  General access RTC ports on x86 systems.
+	 */
+	static constexpr uint8_t R_PCH_RTC_INDEX = 0x70;
+	static constexpr uint8_t R_PCH_RTC_TARGET = 0x71;
+	static constexpr uint8_t R_PCH_RTC_EXT_INDEX = 0x72;
+	static constexpr uint8_t R_PCH_RTC_EXT_TARGET = 0x73;
+
+	/**
+	 *  RTC has N banks (we support up to 2) of memory.
+	 */
+	static constexpr uint8_t RTC_BANK_SIZE = 0x80;
+
+	/**
+	 *  Non-ext RTC index register uses higher bit for nmi.
+	 */
+	static constexpr uint8_t RTC_DATA_MASK = 0x7F;
+	static constexpr uint8_t RTC_NMI_MASK = 0x80;
+
+	/**
+	 *  Time offsets.
+	 */
+	static constexpr uint8_t RTC_SEC = 0x00;
+	static constexpr uint8_t RTC_MIN = 0x02;
+	static constexpr uint8_t RTC_HOUR = 0x04;
+
+	static constexpr uint8_t RTC_DAY = 0x07;
+	static constexpr uint8_t RTC_MON = 0x08;
+	static constexpr uint8_t RTC_YEAR = 0x09;
+
 	/**
 	 *  Attempt to connect to active RTC service
 	 *

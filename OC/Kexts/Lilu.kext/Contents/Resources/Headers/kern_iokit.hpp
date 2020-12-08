@@ -11,7 +11,6 @@
 #include <Headers/kern_config.hpp>
 #include <Headers/kern_util.hpp>
 #include <Headers/kern_patcher.hpp>
-#include <Library/LegacyLibkernMacros.h>
 
 #include <libkern/c++/OSSerialize.h>
 #include <IOKit/IORegistryEntry.h>
@@ -230,6 +229,15 @@ namespace WIOKit {
 	using t_PCIGetBusNumber = uint8_t (*)(IORegistryEntry *service);
 	using t_PCIGetDeviceNumber = uint8_t (*)(IORegistryEntry *service);
 	using t_PCIGetFunctionNumber = uint8_t (*)(IORegistryEntry *service);
+
+	/**
+	 *  Await for device publishing in IOService plane
+	 *
+	 *  @param obj  wait for (PCI) object publishing
+	 *
+	 *  @retval true on success
+	 */
+	EXPORT bool awaitPublishing(IORegistryEntry *obj);
 
 	/**
 	 *  Read PCI Config register

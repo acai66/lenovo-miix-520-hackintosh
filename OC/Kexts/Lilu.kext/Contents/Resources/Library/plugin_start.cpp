@@ -8,31 +8,17 @@
 #include <Headers/plugin_start.hpp>
 #include <Headers/kern_api.hpp>
 #include <Headers/kern_util.hpp>
+#include <Headers/kern_version.hpp>
 
 #ifndef LILU_CUSTOM_KMOD_INIT
 bool ADDPR(startSuccess) = false;
 #else
 // Workaround custom kmod code and enable by default
 bool ADDPR(startSuccess) = true;
-#endif
+#endif /* LILU_CUSTOM_KMOD_INIT */
 
 bool ADDPR(debugEnabled) = false;
 uint32_t ADDPR(debugPrintDelay) = 0;
-
-#if !defined(LILU_CUSTOM_KMOD_INIT) || !defined(LILU_CUSTOM_IOKIT_INIT)
-
-static const char kextVersion[] {
-#ifdef DEBUG
-	'D', 'B', 'G', '-',
-#else
-	'R', 'E', 'L', '-',
-#endif
-	xStringify(MODULE_VERSION)[0], xStringify(MODULE_VERSION)[2], xStringify(MODULE_VERSION)[4], '-',
-	getBuildYear<0>(), getBuildYear<1>(), getBuildYear<2>(), getBuildYear<3>(), '-',
-	getBuildMonth<0>(), getBuildMonth<1>(), '-', getBuildDay<0>(), getBuildDay<1>(), '\0'
-};
-
-#endif
 
 #ifndef LILU_CUSTOM_IOKIT_INIT
 
@@ -88,6 +74,16 @@ EXPORT extern "C" kern_return_t ADDPR(kern_start)(kmod_info_t *, void *) {
 		lilu.releaseAccess();
 	} else {
 		SYSLOG("init", "failed to call parent %d", error);
+
+		for (size_t i = 0; i < ADDPR(config).debugArgNum; i++) {
+			if (checkKernelArgument(ADDPR(config).debugArg[i])) {
+				ADDPR(debugEnabled) = true;
+				break;
+			}
+		}
+
+		if (checkKernelArgument("-liludbgall"))
+			ADDPR(debugEnabled) = true;
 	}
 
 	// Report success but actually do not start and let I/O Kit unload us.
@@ -101,21 +97,3 @@ EXPORT extern "C" kern_return_t ADDPR(kern_stop)(kmod_info_t *, void *) {
 }
 
 #endif /* LILU_CUSTOM_KMOD_INIT */
-
-#ifdef __MAC_10_15
-
-// macOS 10.15 adds Dispatch function to all OSObject instances and basically
-// every header is now incompatible with 10.14 and earlier.
-// Here we add a stub to permit older macOS versions to link.
-// Note, this is done in both kern_util and plugin_start as plugins will not link
-// to Lilu weak exports from vtable.
-
-kern_return_t WEAKFUNC PRIVATE OSObject::Dispatch(const IORPC rpc) {
-	PANIC("util", "OSObject::Dispatch plugin stub called");
-}
-
-kern_return_t WEAKFUNC PRIVATE OSMetaClassBase::Dispatch(const IORPC rpc) {
-	PANIC("util", "OSMetaClassBase::Dispatch plugin stub called");
-}
-
-#endif

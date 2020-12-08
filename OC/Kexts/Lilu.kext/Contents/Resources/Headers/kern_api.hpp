@@ -16,6 +16,11 @@
 #include <stdint.h>
 #include <sys/types.h>
 #include <libkern/OSAtomic.h>
+#include <Availability.h>
+
+#ifndef __ACIDANTHERA_MAC_SDK
+#error "This kext SDK is unsupported. Dowload from https://github.com/acidanthera/MacKernelSDK"
+#endif
 
 class LiluAPI {
 public:
@@ -243,6 +248,11 @@ public:
 		if (err != Error::NoError)
 			PANIC("api", "onEntitlementRequest failed with code %d", err);
 	}
+
+	/**
+	 *  Complete plugin registration and perform regulatory actions
+	 */
+	void finaliseRequests();
 
 	/**
 	 *  Processes all the registered patcher load callbacks
