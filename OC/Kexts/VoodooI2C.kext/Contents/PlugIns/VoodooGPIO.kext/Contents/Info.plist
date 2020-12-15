@@ -66,19 +66,6 @@
 			<key>IOProviderClass</key>
 			<string>IOService</string>
 		</dict>
-		<key>VoodooGPIOIceLakeLP</key>
-		<dict>
-			<key>CFBundleIdentifier</key>
-			<string>org.coolstar.VoodooGPIO</string>
-			<key>IOClass</key>
-			<string>VoodooGPIOIceLakeLP</string>
-			<key>IONameMatch</key>
-			<array>
-				<string>INT3455</string>
-			</array>
-			<key>IOProviderClass</key>
-			<string>IOService</string>
-		</dict>
 		<key>VoodooGPIOSunrisePointH</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
