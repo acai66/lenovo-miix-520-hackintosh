@@ -42,7 +42,7 @@ Thanks  [jamesxxx1997](http://i.pcbeta.com/space-uid-4849122.html) for translati
 ## 2.System screenshot
 
 - OpenCore bootloader screenshot：
-<div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-CLOVER/master/Resource/images/OpenCoreBootloader" width="95%" /></div>
+<div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-CLOVER/master/Resource/images/OpenCoreBootloader.png" width="95%" /></div>
 
 - Mac OS screenshot：
 <div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-CLOVER/master/Resource/images/about.png" width="95%" /></div>
