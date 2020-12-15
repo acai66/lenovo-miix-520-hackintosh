@@ -1773,6 +1773,7 @@
 			<string>AudioDxe.efi</string>
 			<string>OpenUsbKbDxe.efi</string>
 			<string>ExFatDxe.efi</string>
+			<string>CrScreenshotDxe.efi</string>
 		</array>
 		<key>Input</key>
 		<dict>
