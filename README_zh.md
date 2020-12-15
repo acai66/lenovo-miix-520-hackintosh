@@ -1,8 +1,8 @@
-# lenovo-miix-520-hackintosh-10.14-CLOVER
+# lenovo-miix-520-hackintosh
 [README](README.md) | [中文文档](README_zh.md)
 
 macos on lenovo miix 520 is almost perfect
-支持macos10.14.x、10.15.x。
+支持macos10.14.x、10.15.x、11.0.x。
 
 miix 520 接近完美黑苹果，[点击查看远景贴](http://bbs.pcbeta.com/viewthread-1795824-1-1.html)
 
@@ -18,16 +18,13 @@ miix 520 接近完美黑苹果，[点击查看远景贴](http://bbs.pcbeta.com/v
 6. 更新日志
 7. 常见问题解答
 	- 1:安装前的准备有哪些？
-	- 2:为什么安装时进度条走一半就卡住了？
-	- 3:为什么安装后触屏不能用？
-	- 4:为什么睡眠唤醒后键盘与触摸板就不能用了？
-	- 5:为什么多指触控不正常？
-	- 6:我可以随意更新系统吗？
-	- 7:开机声音怎么开启与关闭？
-	- 8:读卡器能驱动吗？
-	- 9:无线网卡怎么驱动？10:为什么转换为以OpenCore更新为主？
-	- 10:为什么转换为以OpenCore更新为主？
-        - 11:如何禁用OpenCore开机声音？
+	- 2:为什么安装后触屏不能用？
+	- 3:为什么睡眠唤醒后键盘与触摸板就不能用了？
+	- 4:我可以随意更新系统吗？
+	- 5:读卡器能驱动吗？
+	- 6:无线网卡怎么驱动？
+	- 7:为什么转换为以OpenCore更新为主？
+	- 8:如何禁用OpenCore开机声音？
 
 ## 1.配置信息
 
@@ -44,7 +41,7 @@ miix 520 接近完美黑苹果，[点击查看远景贴](http://bbs.pcbeta.com/v
 
 ## 2.系统运行截图
 
-- CLOVER多系统选择界面：
+- OpenCore多系统选择界面：
 <div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-CLOVER/master/Resource/images/clover.png" width="95%" /></div>
 
 - Mac OS运行图：
@@ -133,6 +130,12 @@ miix 520 接近完美黑苹果，[点击查看远景贴](http://bbs.pcbeta.com/v
 	`sudo sh ./patch.sh`
 
 ## 6.更新日志
+
+### v2.5 -- 2020-12-15
+- 更新最新OpenCore、驱动，支持最新 macOS 11.0.1.
+- 不再支持CLOVER.
+- 添加Intel网卡与蓝牙驱动，测试性支持。
+- 启用Apple Secure Boot.
 
 ### v2.5 beta -- 2020-07-02
 - 更新最新自编译OpenCore、驱动，支持最新 macOS 11.0 (10.16).
@@ -248,39 +251,30 @@ miix 520 接近完美黑苹果，[点击查看远景贴](http://bbs.pcbeta.com/v
 2. bios里磁盘模式为ahci，启动模式为uefi，安全启动关闭。
 3. dmg格式的macos10.14.x镜像，百度 黑果小兵 可以找到新版clover镜像。
 4. 刻录镜像到u盘的工具，[etcher](https://www.balena.io/etcher/)
-5. 刻录完成后，替换u盘esp分区的clover文件夹为该项目的clover。
-6. 按照 [常见问题解答2](https://github.com/acai66/lenovo-miix-520-hackintosh-CLOVER#2为什么安装时进度条走一半就卡住了) 里的操作来屏蔽显卡安装。
-7. 安装完成后，添加硬盘启动引导。
-	
-### ~~2:为什么安装时进度条走一半就卡住了？~~
-~~A: 由于未知的原因，动态的显存补丁不能生效，所以导致dvmt显存检测时过不去而卡住，解决办法是暂时屏蔽显卡来安装，安装完成后，来运行kext utility来重建驱动缓存；具体做法是启动到clover界面，按字母o，找到graphics开头的选项，勾选里面的inject intel ，再修改*-platfrom-id为0x12345678，再esc键回clover主界面，启动安装，等安装好进入到桌面后，运行kext utility，输入密码，等待操作完成，quit，再不屏蔽显卡启动就好了。~~
-<div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-CLOVER/master/Resource/images/disable_grapgics.png" width="95%" /></div>
+5. 刻录完成后，替换u盘esp分区的OC文件夹为该项目的OC。
+6. 安装完成后，添加硬盘启动引导。
 
-### 3:为什么安装后触屏不能用？
+
+### 2:为什么安装后触屏不能用？
 A: 可能是与系统内置i2c驱动有冲突或者第一次启动时驱动注入不成功有关，安装后完成，请重启1·2次，如果触屏还是不能使用，请手动移除sle里的AppleIntelLpssI2C.kext和AppleIntelLpssI2CController.kext，并运行kext utility来修复权限重建缓存，再重启测试触屏。
 
-### 4:为什么睡眠唤醒后键盘与触摸板就不能用了？
+### 3:为什么睡眠唤醒后键盘与触摸板就不能用了？
 A: 请看readme里 bug与解决方式部分
-	
-### ~~5:为什么多指触控不正常？~~
-~~A: voodooi2c系列驱动的bug，等待作者修复这个，我会尽早更新clover的~~
 
-### 6:我可以随意更新系统吗？
-A: 理论上可以直接更新系统，但是新系统可能会把显卡驱动恢复到未打补丁的状态，所以更新系统时也屏蔽显卡启动，等更新完成后，再运行kext utility，再不屏蔽显卡启动。
-### 7:开机声音怎么开启与关闭？
-A: clover的新特性支持开机声音，并且我也添加转换过后的macbook的开机声音文件到主题文件夹里了，由于这个特性的设置储存在nvram里，所以直接使用clover可能并不会有声音，需要进行有关的设置才行，使用新版的clover，开机启动到clover界面时，按字母o，找到Startup sound output,里面的Volume是音量，图中音量80，下面两个选项是发声设备，Speaker是扬声器，Headphones是耳机设备，在这个界面可以按F7来测试是否有声。
-<div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-CLOVER/master/Resource/images/setup_sound.png" width="95%" /></div>
-如需关闭声音，可以选择把音量调为0，或者选择不存在的发声设备，或者删除主题文件夹里的声音文件。
 
-### 8:读卡器能驱动吗？
+### 4:我可以随意更新系统吗？
+A: 理论上可以直接更新系统.
+
+
+### 5:读卡器能驱动吗？
 A: 默认不再添加读卡器驱动，原因是这个不稳定，会有启动问题或别的问题，而且需求一般不是很明显。该项目的这个Sinetek-rtsx.kext就是读卡器驱动，据说这个不能用或者有别的问题，如果有问题，请自行编译该驱动，[原驱动项目开源地址](https://github.com/sinetek/Sinetek-rtsx)
 
-### 9:无线网卡怎么驱动？
-A: intel的无线网卡全球无解，所以想要驱动wifi还是换mac下能驱动的网卡，可以考虑bcm94352z联想版。不建议使用usb wifi，因为不稳定，不方便。
+### 6:无线网卡怎么驱动？
+A: v2.5开始添加intel wifi和蓝牙驱动，当前处于测试阶段，为了稳定使用，建议更换bcm94352z联想版。不建议使用usb wifi，因为不稳定，不方便。
 
-### 10:为什么转换为以OpenCore更新为主？
+### 7:为什么转换为以OpenCore更新为主？
 A: 为了完成更加接近原生的体验以及更加完善完美的acpi补丁与hotpatch补丁，选择了oc启动引导，该引导工具会平等的对待各个操作系统，hotpatch补丁、smbios等将会影响它启动的各个系统，包括win与linux，所以对hotpatch补丁的完善提出了更大的要求。该引导还有很多特性，尽管可能目前配置还没完善，但不得不说这是个优秀的引导工具，开机快、支持macOS bless、支持mac原生快捷组合键以及未来可能会支持安全启动。
 
-### 11:如何禁用OpenCore开机声音？
+### 8:如何禁用OpenCore开机声音？
 A: v2.2版本开始支持OC开机声音，如需禁用声音，可以通过修改oc配置文件，将AudioSupport设置为false，更多声音设置(声音大小、类型等)请参阅OC官方文档。
 

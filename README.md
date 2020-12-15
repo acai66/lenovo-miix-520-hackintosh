@@ -1,8 +1,8 @@
-# lenovo-miix-520-hackintosh-10.14-CLOVER
+# lenovo-miix-520-hackintosh
 [README](README.md) | [中文文档](README_zh.md)
 
 macos on lenovo miix 520 is almost perfect.
-support macos 10.14.x and 10.15.x
+support macos 10.14.x, 10.15.x, 11.0.x .
 
 Thanks  [jamesxxx1997](http://i.pcbeta.com/space-uid-4849122.html) for translating into English.
 
@@ -19,13 +19,12 @@ Thanks  [jamesxxx1997](http://i.pcbeta.com/space-uid-4849122.html) for translati
 6. Release version
 7. Comon FAQ
 	- 1:Pre-install preparation
-	- 2:Why progress bar stuck when installation? (solved)
-	- 3:Why touchscreen cannot use after installation?
-	- 4:Why after wake up from sleep mode , keyboard type cover not working?
-	- 5:Can I update the system?
-	- 6:How to ecnable/disable boot sound?
-	- 7:Can I use SD card reader?
-	- 8:How to use wifi and Bluetooth?
+	- 2:Why touchscreen cannot use after installation?
+	- 3:Why after wake up from sleep mode , keyboard type cover not working?
+	- 4:Can I update the system
+	- 5:Can I use SD card reader?
+	- 6:How to use wifi and Bluetooth？
+
 
 ## 1.Hardware configuration
 
@@ -42,7 +41,7 @@ Thanks  [jamesxxx1997](http://i.pcbeta.com/space-uid-4849122.html) for translati
 
 ## 2.System screenshot
 
-- CLOVER bootloader screenshot：
+- OpenCore bootloader screenshot：
 <div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-CLOVER/master/Resource/images/clover.png" width="95%" /></div>
 
 - Mac OS screenshot：
@@ -135,6 +134,13 @@ The procedure is listed below：
 	`sudo sh ./patch.sh`
 
 ## 6.release version
+
+### v2.5 -- 2020-12-15
+- Update the latest OpenCore and drivers, and support the latest macOS 11.0.1.
+- CLOVER will be deprecated.
+- Add Intel wifi and BT support.
+- Enable Apple Secure Boot.
+
 
 ### v2.5 beta -- 2020-07-02
 - Update the latest OpenCore and drivers, and support the latest macOS 11.0 (10.16).
@@ -235,30 +241,23 @@ The procedure is listed below：
 3. Bios setting : boot mode is uefi ; disabled the secure boot
 4. A disk image for macos mojav
 5. Create install media with a tool that burn the disk image to USB drive , recommend [etcher](https://www.balena.io/etcher/)
-6. After creating usb drive , replace the clover file , which is in the Esp partition of USB drive , with the clover in github
+6. After creating usb drive , replace the OC file , which is in the Esp partition of USB drive , with the OC in github
 7. After the installation , add clover boot options for all entries。
 	
-### ~~2:为什么安装时进度条走一半就卡住了？~~
-~~A: 由于未知的原因，动态的显存补丁不能生效，所以导致dvmt显存检测时过不去而卡住，解决办法是暂时屏蔽显卡来安装，安装完成后，来运行kext utility来重建驱动缓存；具体做法是启动到clover界面，按字母o，找到graphics开头的选项，勾选里面的inject intel ，再修改*-platfrom-id为0x12345678，再esc键回clover主界面，启动安装，等安装好进入到桌面后，运行kext utility，输入密码，等待操作完成，quit，再不屏蔽显卡启动就好了。~~
-<div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-CLOVER/master/Resource/images/disable_grapgics.png" width="95%" /></div>
 
-### 3: Why touchscreen cannot use after installation?
+### 2: Why touchscreen cannot use after installation?
 A: This bug might result from voodooi2c.kext interruption with system i2c kext or fail to inject kext. After installation , please restart again , if the touchscreen still can not use , please manually remove the AppleIntelLpssI2C.kext and AppleIntelLpssI2CController.kext and run kext utility to rebuild your kextcache , then test the touchscreen again.
 
-### 4: Why after wake up from sleep mode , keyboard type cover not working?
+### 3: Why after wake up from sleep mode , keyboard type cover not working?
 A: please look up to the “bug and solution” part in readme
 
-### 5: Can I update the system
-A: Theoretically , you can update system without a doubt. However , update system may break graphic acceleration patch. So don’t forget to use an invalid ig-platform-id (0x12345678) when update the system. After the update is finished , rebuild kextcache , then inject valid ig-platform-id and restart your machine again.
+### 4: Can I update the system
+A: Theoretically , you can update system without a doubt.
 
-### 6: How to ecnable/disable boot sound?
-A: For OpenCore bootloader: you can try to edit config.plist, set AudioSupport to False. For CLOVER bootloader: The new version of clover have boot sound option , and the macbook boot sound file is added. For the setting of this option is stored in nvram , so using clover directly without any advanced setting may not have boot sound. Using  newer version of clover and press O in the clover boot screen , enter the option “Startup sound output”, you can find out your screen as screenshot below. The default sound is 80 (in “sound” option),and you can test the boot sound by pressing F7. The two option under “sound” is sound output device.
-<div align=center><img src="https://raw.githubusercontent.com/acai66/lenovo-miix-520-hackintosh-CLOVER/master/Resource/images/setup_sound.png" width="95%" /></div>
-If you don’t neet boot sound , you can turn down the volume to 0 , or choose the sound output device there is not exist , or just delete the sound file in the folder.
 
-### 7: Can I use SD card reader?
+### 5: Can I use SD card reader?
 A: The SD card reader kext isn’t added by default , for it is not stable , having issues with boot or something. The SD card reader kext is Sinetek-rtsx.kext is said to have issues. If you have problem with it , please compile the kext by yourself，[Sinetek-rtsx](https://github.com/sinetek/Sinetek-rtsx)
 
-### 8: How to use wifi and Bluetooth？
-A: intel’s wifi card don’t have any solution , so use some wifi card like bcm94352z Lenovo version. It’s not recommend to use usb wifi dongle for unstability.
+### 6: How to use wifi and Bluetooth？
+A: Testing support for intel wifi card, but for better experience it’s recommend wifi card like bcm94352z Lenovo version, and it is not recommend to use usb wifi dongle for unstability.
 
