@@ -251,6 +251,12 @@ extern proc_t kernproc;
 #define NONNULL __attribute__((nonnull))
 
 /**
+ *  Compiler hints regarding branching
+ */
+#define LIKELY(x) __builtin_expect(!!(x), 1)
+#define UNLIKELY(x) __builtin_expect(!!(x), 0)
+
+/**
  *  This function is supposed to workaround missing entries in the system log.
  *  By providing its own buffer for logging data.
  *
@@ -288,6 +294,29 @@ EXPORT char *strrchr(const char *stack, int ch);
  *  @param cmp  array element comparator
  */
 EXPORT void qsort(void *a, size_t n, size_t es, int (*cmp)(const void *, const void *));
+
+/**
+ *  Portable implementation of memmem function performing byte sequence (needle) search in another byte sequence (haystack).
+ *
+ *  @param h0    haystack
+ *  @param k    haystack size
+ *  @param n0   needle
+ *  @param l  needle size
+ *
+ *  @return pointer to found sequence or NULL
+ */
+EXPORT void *lilu_os_memmem(const void *h0, size_t k, const void *n0, size_t l);
+
+/**
+ *  Portable implementation of memchr function performing byte search in a byte sequence.
+ *
+ *  @param src    source to search in
+ *  @param c    byte to find
+ *  @param n   source size in bytes
+ *
+ *  @return pointer to found byte or NULL
+ */
+EXPORT void *lilu_os_memchr(const void *src, int c, size_t n);
 
 /**
  *  Count array elements
