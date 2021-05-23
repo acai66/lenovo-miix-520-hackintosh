@@ -891,7 +891,7 @@
                     <key>Comment</key>
                     <string></string>
                     <key>Enabled</key>
-                    <false/>
+                    <true/>
                     <key>ExecutablePath</key>
                     <string>Contents/MacOS/YogaSMC</string>
                     <key>MaxKernel</key>
@@ -1244,7 +1244,7 @@
                 <key>HibernateMode</key>
                 <string>None</string>
                 <key>HideAuxiliary</key>
-                <false/>
+                <true/>
                 <key>LauncherOption</key>
                 <string>Full</string>
                 <key>LauncherPath</key>
@@ -1915,7 +1915,7 @@
                 <string>OpenCanopy.efi</string>
                 <string>AudioDxe.efi</string>
                 <string>#OpenPartitionDxe.efi</string>
-                <string>#OpenUsbKbDxe.efi</string>
+                <string>OpenUsbKbDxe.efi</string>
                 <string>#UsbMouseDxe.efi</string>
                 <string>#Ps2KeyboardDxe.efi</string>
                 <string>#Ps2MouseDxe.efi</string>
@@ -1932,7 +1932,7 @@
                 <key>KeyForgetThreshold</key>
                 <integer>5</integer>
                 <key>KeySupport</key>
-                <true/>
+                <false/>
                 <key>KeySupportMode</key>
                 <string>Auto</string>
                 <key>KeySwap</key>
@@ -2025,7 +2025,7 @@
                 <key>IgnoreInvalidFlexRatio</key>
                 <false/>
                 <key>ReleaseUsbOwnership</key>
-                <false/>
+                <true/>
                 <key>ReloadOptionRoms</key>
                 <false/>
                 <key>RequestBootVarRouting</key>
